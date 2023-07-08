@@ -1,3 +1,5 @@
+import checkPalindrome from "./auxFunction/checkPalindorme.js";
+
 function invertSentenceOrder(str) {
 
   const stringToArray = str.split(" ");
@@ -17,9 +19,25 @@ function removeDuplicates(str) {
     }
   
   }
-  console.log(result)
+
   return result;
 }
 
-removeDuplicates("Hello, Word!");
+function findBiggestPalindrome(str){
+  let biggestPalindrome = "";
+
+ for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j <= str.length; j++) {
+      const substring = str.slice(i, j);
+      if (checkPalindrome(substring) && substring.length > biggestPalindrome.length) {
+        biggestPalindrome = substring;
+      }
+    }
+  }
+
+  return biggestPalindrome;
+}
+
 invertSentenceOrder("Hello, Word! OpenAi is amazing.");
+removeDuplicates("Hello, Word!");
+findBiggestPalindrome("babaddeleveledsss")
