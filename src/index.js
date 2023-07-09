@@ -60,8 +60,36 @@ function capitalizingFirstLetter (str){
   return result;
 }
 
+function isAnagramOfPalindrome(str) {
+  const charCount = {};
 
+  for (let char of str) {
+    if (char !== ' ') {
+      char = char.toLowerCase();
+      if (charCount[char]) {
+        charCount[char]++;
+      } else {
+        charCount[char] = 1;
+      }
+    }
+  }
+
+  let oddCount = 0;
+  for (let count in charCount) {
+    if (charCount[count] % 2 !== 0) {
+      oddCount++;
+    }
+    if (oddCount > 1) {
+      return "false";
+    }
+  }
+  
+  return "true";
+}
+
+isAnagramOfPalindrome("Able was I saw Elba I ere") 
 capitalizingFirstLetter ("hello. how are you? i'm fine, thank you.")
 invertSentenceOrder("Hello, Word! OpenAi is amazing.");
 removeDuplicates("Hello, Word!");
 findBiggestPalindrome("babaddeleveledsss")
+
