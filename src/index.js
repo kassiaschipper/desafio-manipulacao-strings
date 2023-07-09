@@ -38,6 +38,30 @@ function findBiggestPalindrome(str){
   return biggestPalindrome;
 }
 
+
+function capitalizingFirstLetter (str){
+  const sentences = str.split(/([.!?;:])\s*/);
+  
+  const capitalizedSentences = sentences.map((sentence, index) => {
+    if (index % 2 === 0) {
+     
+      if (sentence.length > 0) {
+        const capitalizedSentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+        return capitalizedSentence;
+      }
+      return sentence;
+    } else {
+      return sentence + " ";
+    }
+  });
+  
+  const result = capitalizedSentences.join("");
+
+  return result;
+}
+
+
+capitalizingFirstLetter ("hello. how are you? i'm fine, thank you.")
 invertSentenceOrder("Hello, Word! OpenAi is amazing.");
 removeDuplicates("Hello, Word!");
 findBiggestPalindrome("babaddeleveledsss")
